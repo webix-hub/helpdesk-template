@@ -1,0 +1,28 @@
+@import "header";
+@import "userTemplate";
+@import "myTicketInbox";
+@import "ticketsGroup";
+@import "myTicketsTable";
+
+.flex {
+    display: flex;
+}
+
+.spaceBetween {
+    justify-content: space-between;
+}
+
+.bgWhite {
+    background-color: #FFFFFF;
+}
+
+.strong {
+    font-weight: 500;
+}
+
+.ellipsis {
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    width: 100%;
+}

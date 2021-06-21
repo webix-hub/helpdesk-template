@@ -1,0 +1,61 @@
+.myTicketsTable {
+    .customIcon {
+        vertical-align: middle;
+        margin-bottom: 2px;
+        cursor: pointer;
+        &.mdi-checkbox-marked {
+            color: #1CA1C1;
+        }
+        &.mdi-checkbox-blank-outline {
+            color: #94A1B3;
+        }
+    }
+    .webix_first {
+        .webix_cell, &.webix_hcell {
+            padding: 0 7px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    .flexCol {
+        &.webix_hcell, 
+        .webix_cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    
+}
+
+.status {
+    color: #fff;
+    text-transform: capitalize;
+    padding: 3px 8px 2px;
+    line-height: 16px;
+    border-radius: 20px;
+    &.draft {
+        background-color: #1CA1C1;
+    }
+    &.final {
+        background-color: #55CD97;
+    }
+}
+
+.starColor {
+    color: #FDBF4C;
+}
+
+.customer {
+    align-items: center;
+}
+.customerAvatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    img {
+        display: block;
+        border-radius: 50%;
+        height: 100%;
+    }
+}

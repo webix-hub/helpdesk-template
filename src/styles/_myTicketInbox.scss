@@ -1,0 +1,18 @@
+.myTicketInbox {
+    .webix_list_item {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        &.webix_selected {
+            background: rgba(28, 161, 193, 0.21);
+            .inboxLetter {
+                font-weight: inherit;
+                color: inherit;
+            }
+        }
+    }
+    .inboxLetter {
+        font-weight: normal;
+        color: #94A1B3;
+    }
+}
