@@ -22,6 +22,5 @@
     "ecmaFeatures": {
       "impliedStrict": true
     }
-  },
-  "extends": "./node_modules/eslint-config-xbsoftware/1__double_quotes_and_tabs.js"
+  }
 }

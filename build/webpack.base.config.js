@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+
 const PATHS = {
 	src: path.join(__dirname, "../src"),
 	dist: path.join(__dirname, "../dist"),
@@ -43,13 +44,18 @@ module.exports = {
 			test: /\.less$/,
 			use: [
 				"style-loader",
-				MiniCssExtractPlugin.loader,
+				{
+					loader: MiniCssExtractPlugin.loader,
+					options: {
+						esModule: false,
+					},
+				},
 				{
 					loader: "css-loader",
 					options: {sourceMap: true}
 				}, {
 					loader: "postcss-loader",
-					options: {sourceMap: true, config: {path: "./postcss.config.js"}}
+					options: {sourceMap: true, postcssOptions: {config: path.resolve(__dirname, "../postcss.config.js")}}
 				}, {
 					loader: "less-loader",
 					options: {sourceMap: true}
@@ -59,13 +65,18 @@ module.exports = {
 			test: /\.s[ac]ss$/i,
 			use: [
 				"style-loader",
-				MiniCssExtractPlugin.loader,
+				{
+					loader: MiniCssExtractPlugin.loader,
+					options: {
+						esModule: false,
+					},
+				},
 				{
 					loader: "css-loader",
 					options: {sourceMap: true}
 				}, {
 					loader: "postcss-loader",
-					options: {sourceMap: true, config: {path: "./postcss.config.js"}}
+					options: {sourceMap: true, postcssOptions: {config: path.resolve(__dirname, "../postcss.config.js")}}
 				}, {
 					loader: "sass-loader",
 					options: {sourceMap: true}
@@ -75,13 +86,19 @@ module.exports = {
 			test: /\.css$/,
 			use: [
 				"style-loader",
-				MiniCssExtractPlugin.loader,
+				{
+					loader: MiniCssExtractPlugin.loader,
+					options: {
+						esModule: false,
+					},
+				},
 				{
 					loader: "css-loader",
 					options: {sourceMap: true}
-				}, {
+				},
+				{
 					loader: "postcss-loader",
-					options: {sourceMap: true, config: {path: "./postcss.config.js"}}
+					options: {sourceMap: true, postcssOptions: {config: path.resolve(__dirname, "../postcss.config.js")}}
 				}
 			]
 		}]
@@ -104,8 +121,12 @@ module.exports = {
 			inject: true
 		}),
 
-		new CopyWebpackPlugin([
-			{from: `${PATHS.src}/static`, to: ""}
-		])
+		new CopyWebpackPlugin(
+			{
+				patterns: [
+					{from: `${PATHS.src}/static`, to: ""}
+				]
+			}
+		)
 	]
 };
